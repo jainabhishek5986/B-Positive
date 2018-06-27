@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify,render_template
 from flask_sqlalchemy import SQLAlchemy
 app=Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI']='sqlite:////home/abhishek/Blood/B-Positive/database'.db'
+app.config['SQLALCHEMY_DATABASE_URI']='sqlite:////home/arti/blood/B-Positive/database.db'
 db=SQLAlchemy(app)
 
 
@@ -14,6 +14,7 @@ def pro(a):
         return "Hello"
 
 class Product(db.Model):
+    id=db.Column(db.Integer,nullable=False,primary_key=True)
     name=db.Column(db.String(100),nullable=False)
     blood_group=db.Column(db.String(100),nullable=False)
     address=db.Column(db.String(100),nullable=True)
@@ -23,6 +24,7 @@ class Product(db.Model):
     email_id=db.Column(db.String(30),unique=True,nullable=False)
     def __repr__(self):
         return '<Product %r>' %self.contact
+
 
 
 if __name__ == "__main__":
