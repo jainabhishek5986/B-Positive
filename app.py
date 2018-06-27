@@ -8,9 +8,9 @@ db=SQLAlchemy(app)
 @app.route("/")
 def hello():
       return "Hello, World!"
-@app.route("/product/<int:a>/",methods=['GET','POST'])
-def pro(a):
-  	return 'hello'
+@app.route("/product/api/post",methods=['GET','POST'])
+def pro():
+
 
 
 class Product(db.Model):
